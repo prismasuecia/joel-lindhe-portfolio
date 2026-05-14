@@ -58,17 +58,26 @@ strips.forEach((strip) => {
     image.alt = "";
     image.dataset.caption = captions[index - 1] || "";
     image.loading = index > 4 ? "lazy" : "eager";
+    link.dataset.caption = image.dataset.caption;
+    if (image.dataset.caption) {
+      link.classList.add("has-caption");
+    }
 
     link.append(image);
     strip.append(link);
     images.push(image);
-
-    link.addEventListener("click", (event) => {
-      if (!image.dataset.caption) return;
-      event.preventDefault();
-      openLightbox(images.filter((item) => item.dataset.caption), 0);
-    });
   }
+
+  strip.addEventListener("click", (event) => {
+    const link = event.target.closest(".strip-image");
+    if (!link || !strip.contains(link) || !link.dataset.caption) return;
+    const captionedImages = images.filter((item) => item.dataset.caption);
+    const clickedImage = link.querySelector("img");
+    const clickedIndex = Math.max(0, captionedImages.indexOf(clickedImage));
+
+    event.preventDefault();
+    openLightbox(captionedImages, clickedIndex);
+  });
 
   strip.addEventListener(
     "wheel",

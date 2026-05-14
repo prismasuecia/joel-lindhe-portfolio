@@ -121,6 +121,10 @@ main {
   height: 100%;
 }
 
+.strip-image.has-caption {
+  cursor: zoom-in;
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
