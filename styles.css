@@ -23,6 +23,10 @@ body {
   font-size: 14px;
 }
 
+body.has-lightbox {
+  overflow: hidden;
+}
+
 img {
   display: block;
   width: auto;
@@ -115,6 +119,74 @@ main {
 .strip-image {
   flex: 0 0 auto;
   height: 100%;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 46px 70px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox__figure {
+  display: grid;
+  gap: 14px;
+  max-width: min(1280px, 86vw);
+  max-height: 88vh;
+  margin: 0;
+}
+
+.lightbox__image {
+  max-width: 100%;
+  max-height: calc(88vh - 34px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lightbox__caption {
+  color: #6f6f6f;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.lightbox button {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lightbox button:hover {
+  color: #111;
+}
+
+.lightbox__close {
+  top: 28px;
+  right: 32px;
+}
+
+.lightbox__nav--prev {
+  left: 32px;
+}
+
+.lightbox__nav--next {
+  right: 32px;
 }
 
 h1,
@@ -335,5 +407,13 @@ h2 {
 
   .wordmark span:last-child {
     font-size: 0.6rem;
+  }
+
+  .lightbox {
+    padding: 52px 20px 34px;
+  }
+
+  .lightbox__nav {
+    display: none;
   }
 }
