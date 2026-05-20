@@ -157,11 +157,14 @@ main {
 }
 
 .lightbox__caption {
-  color: #6f6f6f;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  color: #202020;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  letter-spacing: 0;
+  max-width: 760px;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: none;
+  white-space: pre-line;
 }
 
 .lightbox button {
