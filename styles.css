@@ -142,7 +142,8 @@ main {
 
 .lightbox__figure {
   display: grid;
-  gap: 14px;
+  gap: 10px;
+  justify-items: start;
   max-width: min(1280px, 86vw);
   max-height: 88vh;
   margin: 0;
@@ -157,12 +158,12 @@ main {
 }
 
 .lightbox__caption {
-  color: #202020;
-  font-size: 0.78rem;
-  line-height: 1.45;
+  color: #4a4a4a;
+  font-size: 0.72rem;
+  line-height: 1.42;
   letter-spacing: 0;
-  max-width: 760px;
-  text-align: center;
+  max-width: min(520px, 72vw);
+  text-align: left;
   text-transform: none;
   white-space: pre-line;
 }
@@ -172,14 +173,15 @@ main {
 }
 
 .lightbox__meta {
-  margin-bottom: 7px;
+  margin-bottom: 4px;
+  color: #111;
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .lightbox__text {
-  color: #444;
+  color: #595959;
 }
 
 .lightbox button {
