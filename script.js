@@ -1,4 +1,6 @@
 const strips = document.querySelectorAll("[data-strip]");
+const scriptSource = document.currentScript?.src || "";
+const assetVersion = new URL(scriptSource, window.location.href).searchParams.get("v");
 let activeImages = [];
 let activeIndex = 0;
 
@@ -54,7 +56,8 @@ strips.forEach((strip) => {
 
     link.href = `#${strip.id || "home"}`;
     link.className = "strip-image";
-    image.src = `${folder}/${prefix}-${number}.jpg`;
+    const imagePath = `${folder}/${prefix}-${number}.jpg`;
+    image.src = assetVersion ? `${imagePath}?v=${assetVersion}` : imagePath;
     image.alt = "";
     image.dataset.caption = captions[index - 1] || "";
     image.loading = index > 4 ? "lazy" : "eager";
