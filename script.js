@@ -24,8 +24,22 @@ function showImage(index) {
   if (!activeImages.length) return;
   activeIndex = (index + activeImages.length) % activeImages.length;
   const image = activeImages[activeIndex];
+  const [meta = "", ...captionLines] = (image.dataset.caption || "").split("\n");
+
   lightboxImage.src = image.src;
-  lightboxCaption.textContent = image.dataset.caption || "";
+  lightboxCaption.replaceChildren();
+  const metaElement = document.createElement("span");
+  metaElement.className = "lightbox__meta";
+  metaElement.textContent = meta;
+  lightboxCaption.append(metaElement);
+
+  if (captionLines.length) {
+    const textElement = document.createElement("span");
+    textElement.className = "lightbox__text";
+    textElement.textContent = captionLines.join(" ");
+    lightboxCaption.append(textElement);
+  }
+
   lightboxCaption.hidden = !image.dataset.caption;
 }
 

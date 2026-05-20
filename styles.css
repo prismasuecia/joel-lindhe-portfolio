@@ -167,6 +167,21 @@ main {
   white-space: pre-line;
 }
 
+.lightbox__caption span {
+  display: block;
+}
+
+.lightbox__meta {
+  margin-bottom: 7px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lightbox__text {
+  color: #444;
+}
+
 .lightbox button {
   position: absolute;
   border: 0;
