@@ -74,6 +74,7 @@ strips.forEach((strip) => {
     image.src = assetVersion ? `${imagePath}?v=${assetVersion}` : imagePath;
     image.alt = "";
     image.dataset.caption = captions[index - 1] || "";
+    image.draggable = false;
     image.loading = index > 4 ? "lazy" : "eager";
     link.dataset.caption = image.dataset.caption;
     if (image.dataset.caption) {
@@ -118,6 +119,18 @@ lightbox.querySelector(".lightbox__nav--prev").addEventListener("click", () => s
 lightbox.querySelector(".lightbox__nav--next").addEventListener("click", () => showImage(activeIndex + 1));
 lightbox.addEventListener("click", (event) => {
   if (event.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("contextmenu", (event) => {
+  if (event.target.closest("img")) {
+    event.preventDefault();
+  }
+});
+
+document.addEventListener("dragstart", (event) => {
+  if (event.target.closest("img")) {
+    event.preventDefault();
+  }
 });
 
 document.addEventListener("keydown", (event) => {

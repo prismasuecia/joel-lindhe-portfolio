@@ -32,6 +32,8 @@ img {
   width: auto;
   height: 100%;
   object-fit: contain;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 a {
