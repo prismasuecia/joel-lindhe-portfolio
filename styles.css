@@ -121,7 +121,7 @@ main {
   height: 100%;
 }
 
-.strip-image.has-caption {
+.strip-image {
   cursor: zoom-in;
 }
 

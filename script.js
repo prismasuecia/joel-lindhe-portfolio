@@ -87,13 +87,12 @@ strips.forEach((strip) => {
 
   strip.addEventListener("click", (event) => {
     const link = event.target.closest(".strip-image");
-    if (!link || !strip.contains(link) || !link.dataset.caption) return;
-    const captionedImages = images.filter((item) => item.dataset.caption);
+    if (!link || !strip.contains(link)) return;
     const clickedImage = link.querySelector("img");
-    const clickedIndex = Math.max(0, captionedImages.indexOf(clickedImage));
+    const clickedIndex = Math.max(0, images.indexOf(clickedImage));
 
     event.preventDefault();
-    openLightbox(captionedImages, clickedIndex);
+    openLightbox(images, clickedIndex);
   });
 
   strip.addEventListener(
